@@ -16,7 +16,7 @@ jobs:
         node-version: [22] # Test on multiple Node.js versions
 
 
-    environment: MONGO_URL
+    environment: MONGO_URI
 
     steps:
     - name: Checkout Code
@@ -31,11 +31,11 @@ jobs:
     - name: Print Env Secret
 
       env:
-        MONGO_URL: ${{ secrets.MONGO_URL }}
+        MONGO_URI: ${{ secrets.MONGO_URI }}
         JWT_SECRET: ${{ secrets.JWT_SECRET }}
         PORT: ${{ secrets.PORT }}
       run: | 
-        echo "Secret 1 is: $MONGO_URL"
+        echo "Secret 1 is: $MONGO_URI"
         echo "Secret 2 is: $JWT_SECRET"
         echo "Secret 3 is: $PORT"
       
@@ -62,7 +62,7 @@ jobs:
     # Run backend tests
     - name: Run Backend Tests
       env:
-        MONGO_URI: ${{ secrets.MONGO_URL }}
+        MONGO_URI: ${{ secrets.MONGO_URI }}
         JWT_SECRET: ${{ secrets.JWT_SECRET }}
         PORT: ${{ secrets.PORT }}
       working-directory: ./backend
