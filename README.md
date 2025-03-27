@@ -51,7 +51,8 @@ Select a meaningful use case for your CRUD operations. We will provide the list,
 
 ### **7. CI/CD Pipeline Setup**
 
-* Implement a **CI/CD pipeline using GitHub Actions** to:
+* Implement a **CI/CD pipeline using GitHub Actions** to: 
+
   * Automatically **run tests** on every commit/pull request (Optional).
   * Deploy the **backend** to **AWS** .
   * Deploy the **frontend** to **AWS**.

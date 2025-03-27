@@ -69,5 +69,10 @@ const updateUserProfile = async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 };
+const logoutUser = (req, res) => {
+    res.cookie('jwt', '', { httpOnly: true, expires: new Date(0) }); // Clear token
+    res.status(200).json({ message: 'Logged out successfully' });
+};
 
-module.exports = { registerUser, loginUser, updateUserProfile, getProfile };
+
+module.exports = { registerUser, loginUser, updateUserProfile, getProfile, logoutUser };
