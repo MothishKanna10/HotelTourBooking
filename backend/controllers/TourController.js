@@ -38,9 +38,12 @@ const updateTour = async (req, res) => {
         const tour = await Tour.findById(req.params.id);
         if (!tour) return res.status(404).json({ message: "Tour not found" });
 
+        // Update the tour object with the data from the request body
         Object.assign(tour, req.body);
+
+        // Save the updated tour
         const updatedTour = await tour.save();
-        res.json(updatedTour);
+        res.json(updatedTour);  // Return the updated tour details
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
