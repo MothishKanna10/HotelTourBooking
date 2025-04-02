@@ -1,9 +1,7 @@
 const express = require('express');
 const Hotel = require('../models/Hotel');
-
 const router = express.Router();
 
-// Create a hotel
 router.post('/', async (req, res) => {
     try {
         const hotel = new Hotel(req.body);
@@ -14,7 +12,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Get all hotels
+
 router.get('/', async (req, res) => {
     try {
         const hotels = await Hotel.find();
@@ -24,7 +22,6 @@ router.get('/', async (req, res) => {
     }
 });
 
-// Get a single hotel by ID
 router.get('/:id', async (req, res) => {
     try {
         const hotel = await Hotel.findById(req.params.id);
